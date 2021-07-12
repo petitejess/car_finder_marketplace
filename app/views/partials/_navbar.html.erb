@@ -7,12 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-        <%= link_to "Sell My Car", root_path, class: "btn btn-primary" %>
+        <%= link_to "Sell My Car", new_listing_path, class: "btn btn-primary" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Listings", root_path, class: "nav-link" %>
+          <% if user_signed_in? %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <% else %>
+            <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+          <% end %>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+
+<!-- # User journey:
+# 1. Sell My Car > sign up > create profile > list car for sale
+# 2. if user already logged in and clicks sell car
+# create profile > list car
+# 3. if users already logged in and has a profile, sell car button -->
