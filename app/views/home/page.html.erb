@@ -7,4 +7,25 @@
   </div>
 </div>
 
-<%= image_tag "car.jpg", class: "landing-page-img" %>
+<div class="row">
+  <% @listings.each do |car| %>  
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem;">
+        <% if car.pictures && car.pictures.first %>
+          <%= image_tag car.pictures.first, class: "card-img-top" %>
+        <% else %>
+          <%= image_tag "car.jpg", class: "card-img-top" %>
+        <% end %>
+        <h5 class="card-title">
+            <%= car.title %>
+        </h5>
+        <p class="card-text">
+          $<%= car.price %>
+        </p>
+        <p class="card-text">
+          <%= link_to "Explore", listing_path(car.id), class: "btn btn-primary" %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
