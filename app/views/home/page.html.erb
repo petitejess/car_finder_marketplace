@@ -12,9 +12,9 @@
     <div class="col-md-4">
       <div class="card" style="width: 18rem;">
         <% if car.pictures && car.pictures.first %>
-          <% #= image_tag car.pictures.first, class: "card-img-top" %>
+          <%= image_tag car.pictures.first, class: "card-img-top" %>
         <% else %>
-          <% #= image_tag "car.jpg", class: "card-img-top" %>
+          <%= image_tag "car.jpg", class: "card-img-top" %>
         <% end %>
         <h5 class="card-title">
             <%= car.title %>

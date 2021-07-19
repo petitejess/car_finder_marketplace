@@ -32,9 +32,9 @@
 
 <p>
   <strong>Picture:</strong>
-  <% # @listing.pictures.each do |pic|%>
-    <% #= image_tag pic %>
-  <% # end %>
+  <% @listing.pictures.each do |pic|%>
+    <%= image_tag pic %>
+  <% end %>
 </p>
 
 <p>
